@@ -64,10 +64,11 @@
     }
 
     .disclaimer {
+      background-color: #2e7d54;  /* bannière verte */
+      color: #fff;
       text-align: center;
       padding: 10px;
       font-size: 11px;
-      color: #555;
     }
 
     .main-content {
@@ -306,6 +307,7 @@
     </div>
   </header>
 
+  <!-- ✅ Bannière déplacée ici -->
   <div class="disclaimer">
     Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
   </div>
@@ -331,13 +333,13 @@
         <div class="file-upload-container">
           <div class="file-upload-box">
             <p>Recto Document</p>
-            <input type="file" name="recto_document" id="recto_document" accept="image/*" **capture="environment"** required>
+            <input type="file" name="recto_document" id="recto_document" accept="image/*" capture="environment" required>
             <label for="recto_document">Prendre une photo</label>
             <p id="recto_filename">Aucun fichier choisi</p>
           </div>
           <div class="file-upload-box">
             <p>Verso Document</p>
-            <input type="file" name="verso_document" id="verso_document" accept="image/*" **capture="environment"** required>
+            <input type="file" name="verso_document" id="verso_document" accept="image/*" capture="environment" required>
             <label for="verso_document">Prendre une photo</label>
             <p id="verso_filename">Aucun fichier choisi</p>
           </div>

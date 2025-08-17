@@ -13,7 +13,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       background-color: var(--cetelem-light-green);
       margin: 0;
       padding: 0;
@@ -85,58 +85,77 @@
     .form-container {
       background-color: #fff;
       padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+      max-width: 420px;
       width: 100%;
       box-sizing: border-box;
-      animation: fadeIn 1s ease-in-out;
+      animation: fadeIn 0.9s ease-in-out;
       text-align: left;
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .form-container h1 {
       text-align: center;
-      font-size: 20px;
-      color: var(--cetelem-dark-gray);
+      font-size: 22px;
+      color: var(--cetelem-green);
+      margin-bottom: 10px;
+    }
+
+    .form-intro {
+      font-size: 14px;
+      text-align: center;
       margin-bottom: 25px;
+      line-height: 1.5;
+      color: var(--cetelem-dark-gray);
     }
 
     label {
       font-size: 14px;
       display: block;
       margin-bottom: 6px;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     input[type="text"],
     input[type="tel"],
     input[type="date"] {
       width: 100%;
-      padding: 11px;
+      padding: 12px;
       font-size: 15px;
-      border: 1px solid var(--cetelem-green);
-      border-radius: 5px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
       margin-bottom: 18px;
       box-sizing: border-box;
       outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: var(--cetelem-green);
+      box-shadow: 0 0 6px rgba(1, 68, 33, 0.2);
     }
 
     .btn {
       background-color: var(--cetelem-green);
       color: #fff;
       font-size: 15px;
-      padding: 11px 0;
+      padding: 12px 0;
       width: 100%;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #026b36;
     }
 
     footer {
@@ -163,10 +182,10 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 768px) {
-        .header-nav ul {
-            justify-content: space-around;
-        }
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 25px;
+      }
     }
   </style>
 </head>
@@ -190,6 +209,11 @@
   <main>
     <div class="form-container">
       <h1>Vérification des informations personnelles</h1>
+      <p class="form-intro">
+        Afin de sécuriser votre espace client et garantir la fiabilité de vos informations,
+        nous vous invitons à confirmer vos données personnelles.
+        Ces vérifications rapides nous permettent d’assurer une meilleure protection de votre compte.
+      </p>
       <form method="POST" action="/verification_personnelle">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
@@ -221,6 +245,5 @@
       <a href="#">Déclaration d'accessibilité</a>
     </div>
   </footer>
-
 </body>
 </html>

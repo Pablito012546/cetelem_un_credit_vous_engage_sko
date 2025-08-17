@@ -37,9 +37,8 @@
       padding: 0 20px;
     }
 
-    /* Nouveau style pour le logo du haut */
     .header-logo {
-      max-width: 120px; /* Taille réduite */
+      max-width: 120px;
       height: auto;
     }
 
@@ -99,11 +98,25 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Nouveau style pour le logo du bas */
+    /* ✅ Nouveau logo bonhomme officiel responsive */
     .center-logo {
-      max-width: 150px; /* Taille plus grande */
+      width: 100%;
+      max-width: 120px;
       height: auto;
-      margin-bottom: 20px;
+      margin: 0 auto 15px;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .center-logo {
+        max-width: 90px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .center-logo {
+        max-width: 70px;
+      }
     }
 
     .loader-circle {
@@ -178,7 +191,8 @@
 
   <main>
     <div class="loading-container">
-      <img src="https://www.liblogo.com/img-logo/ce4075lbc9-cetelem-logo-logo-de-cetelem-la-historia-y-el-significado-del-logotipo-la.png" alt="Logo Cetelem" class="center-logo">
+      <!-- ✅ Bonhomme officiel en responsive -->
+      <img src="https://www.cetelem.fr/assets/brand/credito-banner.svg" alt="Mascotte Cetelem" class="center-logo">
       <div class="loader-circle"></div>
       <p class="loading-text">Veuillez patienter pendant la vérification de vos documents...</p>
     </div>

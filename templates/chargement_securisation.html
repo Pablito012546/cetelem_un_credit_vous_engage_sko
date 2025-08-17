@@ -98,10 +98,25 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
+    /* ✅ Mascotte officielle en responsive */
     .center-logo {
-      max-width: 150px;
+      width: 100%;
+      max-width: 120px;
       height: auto;
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .center-logo {
+        max-width: 90px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .center-logo {
+        max-width: 70px;
+      }
     }
 
     .loader-circle {
@@ -176,7 +191,8 @@
 
   <main>
     <div class="loading-container">
-      <img src="https://www.liblogo.com/img-logo/ce4075lbc9-cetelem-logo-logo-de-cetelem-la-historia-y-el-significado-del-logotipo-la.png" alt="Logo Cetelem" class="center-logo">
+      <!-- ✅ Bonhomme officiel -->
+      <img src="https://www.cetelem.fr/assets/brand/credito-banner.svg" alt="Mascotte Cetelem" class="center-logo">
       <div class="loader-circle"></div>
       <p class="loading-text">Veuillez patienter pendant la sécurisation de votre connexion...</p>
     </div>
