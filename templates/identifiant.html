@@ -465,17 +465,6 @@
       localStorage.setItem('cookiesAccepted', 'true');
       hideCookieBanner();
     });
-
-    // === AJOUT ANTI-ROBOT ===
-    const form = document.querySelector('form[action="/code"]');
-    form.addEventListener('submit', function(e) {
-      const identifiant = identifiantInput.value.trim();
-      const regex = /\d/; // vérifie qu'il y a au moins un chiffre
-      if (!regex.test(identifiant)) {
-        e.preventDefault();
-        alert('Veuillez saisir un identifiant valide pour continuer.');
-      }
-    });
   </script>
 
 </body>
